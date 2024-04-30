@@ -1,0 +1,13 @@
+.Aboutbody{
+    height: 100vh;
+    margin: 0px;
+    padding: 15px;
+    background-color:#3C5B6F ;
+    overflow: auto;
+}
+p{
+    font-size: 20px;
+    text-align: justify;
+    line-height: normal; /* Adjust as needed */
+    letter-spacing: normal;
+}

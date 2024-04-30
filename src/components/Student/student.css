@@ -1,0 +1,16 @@
+.studentbody{
+    background-color: #dcd8ad;
+}
+.profilesection{
+    background-color: #B2B377;
+    height: 250px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding:10px;
+}
+.chartsection{
+    padding: 20px;
+}
+
