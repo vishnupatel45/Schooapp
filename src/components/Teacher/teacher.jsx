@@ -87,6 +87,7 @@ export function Teacherpage(){
                                                             </dl>
                                                     </Form>
                                                 }
+                                                
                                             </Formik>
                                         </div>
                                     </div>
@@ -96,12 +97,209 @@ export function Teacherpage(){
 
                     </div>
                     </div>
-                </div>
+                {/* </div> // add img section need to Update
                     <div> 
                         <input type="file" accept='image/*' onChange={handilechange} />
                     </div>
                     <img src={cookie['Photo']} width='100%'  />
+                <div> */}
+                </div>
+            </div>
+            <div className='stdUpdates bg-light mt-4 pb-2'>
                 <div>
+                    <div className='alert alert-info bi-person-fill text-center fw-medium fs-5'> Update Student Data</div>
+                    <div className='updatesIcons d-flex justify-content-around'>
+                        <div className='Teacherform' data-bs-toggle="modal" data-bs-target="#Homework">
+                            <span>Home work</span>
+                        </div>
+                        <div className='modal fade' id='Homework'>
+                            <div className=' modal-dialog'>
+                                <div className=' modal-content'>
+                                    <div className='modal-header'>
+                                        <Formik 
+                                            initialValues={{Class:'',Section:'',Subject:'',homeWork:''}}
+                                            validationSchema={yup.object({
+                                                Class:yup.number().required(),
+                                                Section:yup.string().required(),
+                                                Subject:yup.string().required(),
+                                                homeWork:yup.string().required()
+                                            })}
+                                            onSubmit={async (homework) => {
+                                                try {
+                                                    await axios.post('http://127.0.0.1:7000/Add-homewrok', homework);
+                                                    console.log('Homework is updated in the database');
+                                                    // alert('home is Updated');
+
+                                                } catch (error) {
+                                                    console.error('Server side fetching is not done:', error);
+                                                }
+                                            }}
+                                            >
+                                            {
+                                                form=> 
+                                                <Form>
+                                                    <div className=' alert alert-danger fw-bold fs-2'><span className=' bi-book-half'></span> Home work updates <span  className='btn btn-close'  data-bs-dismiss="modal"></span></div>
+                                                    <dl>
+                                                        <dt>Class</dt>
+                                                        <dd><Field type='input' name='Class' className='form-control' placeholder='Enter class'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Class' /></dd>
+                                                        <dt>Section</dt>
+                                                        <dd><Field type='input' name='Section' className='form-control' placeholder='Enter Section'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Section'/></dd>
+                                                        <dt>Subject</dt>
+                                                        <dd><Field type='input' name='Subject' className='form-control' placeholder='Enter subject'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Subject'/></dd>
+                                                        <dt>Homework</dt>
+                                                        <dd><Field type='input' name='homeWork' className='form-control' placeholder='Enter Homewok'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='homeWork'/></dd>
+                                                        <dd><button type='submit'  className='btn btn-warning w-100'  data-bs-dismiss="modal">Submit</button></dd>
+                                                    </dl>
+                                                </Form>
+                                            }
+                                        </Formik>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='Teacherform' data-bs-toggle="modal" data-bs-target="#Attendance">
+                            <span>Atten dance</span>
+                        </div>
+                        <div className='modal fade' id='Attendance'>
+                            <div className=' modal-dialog'>
+                                <div className=' modal-content'>
+                                    <div className='modal-header'>
+                                        <Formik 
+                                            initialValues={{}}
+                                            validationSchema={yup.object({
+                                                
+                                            })}
+                                            onSubmit={async (homework) => {
+                                                try {
+                                                    await 
+                                                    console.log('Homework is updated in the database');
+
+                                                } catch (error) {
+                                                    console.error('Server side fetching is not done:', error);
+                                                }
+                                            }}
+                                            >
+                                            {
+                                                form=> 
+                                                <Form>
+                                                    <div className=' alert alert-danger fw-bold fs-2'><span className=' bi-book-half'></span> Attendance<span  className='btn btn-close'  data-bs-dismiss="modal"></span></div>
+                                                    <dl>
+                                                        
+                                                    </dl>
+                                                </Form>
+                                            }
+                                        </Formik>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='Teacherform' data-bs-toggle="modal" data-bs-target="#Achivements">
+                            <span>Achive ments</span>
+                        </div>
+                        <div className='modal fade' id='Achivements'>
+                            <div className=' modal-dialog'>
+                                <div className=' modal-content'>
+                                    <div className='modal-header'>
+                                        <Formik 
+                                            initialValues={{Class:'',Section:'',RollNumber:'',Title:'',Text:''}}
+                                            validationSchema={yup.object({
+                                                Class:yup.number().required(),
+                                                RollNumber:yup.number().required(),
+                                                Section:yup.string().required(),
+                                                Title:yup.string().required(),
+                                                Text:yup.string().required()
+                                            })}
+                                            onSubmit={async (homework) => {
+                                                try {
+                                                    await axios.post('http://127.0.0.1:7000/Add-Achivements', homework);
+                                                    console.log('Homework is updated in the database');
+                                                    // alert('home is Updated');
+                                                } catch (error) {
+                                                    console.error('Server side fetching is not done:', error);
+                                                }
+                                            }}
+                                            >
+                                            {
+                                                form=> 
+                                                <Form>
+                                                    <div className=' alert alert-danger fw-bold fs-2'><span className=' bi-book-half'></span> Home work updates <span  className='btn btn-close'  data-bs-dismiss="modal"></span></div>
+                                                    <dl>
+                                                        <dt>Class</dt>
+                                                        <dd><Field type='input' name='Class' className='form-control' placeholder='Enter class'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Class' /></dd>
+                                                        <dt>Section</dt>
+                                                        <dd><Field type='input' name='Section' className='form-control' placeholder='Enter Section'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Section'/></dd>
+                                                        <dt>RollNumber</dt>
+                                                        <dd><Field type='input' name='RollNumber' className='form-control' placeholder='Enter RollNumber'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='RollNumber'/></dd>
+                                                        <dt>Title</dt>
+                                                        <dd><Field type='input' name='Title' className='form-control' placeholder='Enter Title'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Title'/></dd>
+                                                        <dt>Text</dt>
+                                                        <dd><Field type='input' name='Text' className='form-control' placeholder='Some Text about Achivemnts'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='Text'/></dd>
+                                                        <dd><button type='submit'  className='btn btn-warning w-100'  data-bs-dismiss="modal">Submit</button></dd>
+                                                    </dl>
+                                                </Form>
+                                            }
+                                        </Formik>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='Teacherform' data-bs-toggle="modal" data-bs-target="#Events">
+                            <span>Events</span>
+                        </div>
+                        <div className='modal fade' id='Events'>
+                            <div className=' modal-dialog'>
+                                <div className=' modal-content'>
+                                    <div className='modal-header'>
+                                        <Formik 
+                                            initialValues={{teacher:'',EventTitle:'',EventText:'',EventDate:''}}
+                                            validationSchema={yup.object({
+                                                EventTitle:yup.string().required(),
+                                                EventText:yup.string().required(),
+                                                EventDate:yup.string().required()
+                                            })}
+                                            onSubmit={async (Eventsdata) => {
+                                                try {
+                                                    await axios.post('http://127.0.0.1:7000/Add-Events', Eventsdata);
+                                                    console.log('Eventsdata is updated in the database');
+                                                    // alert('home is Updated');
+                                                } catch (error) {
+                                                    console.error('Server side fetching is not done:', error);
+                                                }
+                                            }}
+                                            >
+                                            {
+                                                form=> 
+                                                <Form>
+                                                    <div className=' alert alert-danger fw-bold fs-2'><span className=' bi-book-half'></span> Update Events <span  className='btn btn-close'  data-bs-dismiss="modal"></span></div>
+                                                    <dl>
+                                                        <dt>EventTitle</dt>
+                                                        <dd><Field type='input' name='EventTitle' className='form-control' placeholder='Enter EventTitle'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='EventTitle'/></dd>
+                                                        <dt>EventText</dt>
+                                                        <dd><Field type='inpu' name='EventText' className='form-control' placeholder='Enter EventTxt'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='EventText'/></dd>
+                                                        <dt>EventDate</dt>
+                                                        <dd><Field type='inpu' name='EventDate' className='form-control' placeholder='Enter EventDate'/></dd>
+                                                        <dd className='text-danger'><ErrorMessage name='EventDate'/></dd>
+                                                        <dd><button type='submit'  className='btn btn-warning w-100'  data-bs-dismiss="modal">Submit</button></dd>
+                                                    </dl>
+                                                </Form>
+                                            }
+                                        </Formik>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

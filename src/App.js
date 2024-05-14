@@ -25,12 +25,12 @@ function App() {
           <Route path='/Admission' element={<Admissionpage/>} />
           <Route path='/' element={<Gallerypage/>} />
           <Route path='/Event' element={<Eventpage/>} />
-          <Route path='/Assignnment' element={<Assignnmentpage/>} />
+          <Route path='/Assignnment/:class/:section' element={<Assignnmentpage/>} />
           <Route path='/Teacher' element={<Teacherpage/>} />
           <Route path='/Homework/:class/:section' element={<HomeworkPage/>} />
           <Route path='/Achivement/:class/:section/:RoolNumber' element={<Achivementpage/>} />
-          <Route path='/Student' element={<Studentpage/>} />
-          <Route path='/Attendance' element={<Attendancepage/>} />
+          <Route path='/Student/:class/:section/:RoolNumber' element={<Studentpage/>} />
+          <Route path='/GetAttendance/:class/:section/:RoolNumber' element={<Attendancepage/>} />
         </Routes>
       </BrowserRouter>
     </div>

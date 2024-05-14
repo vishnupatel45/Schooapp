@@ -16,7 +16,7 @@ export function Studentpage(){
     // const [sectioncookie,setsectioncookie,removesectioncookie] = useCookies('studentsection')
     
     const fetchProfile = async () =>{
-         await axios.get(`http://127.0.0.1:7000/student/10/B/31`)
+         await axios.get(`http://127.0.0.1:7000/studentprofile/10/B/31`)
         .then(res => setprofile(res.data));
     }
 
@@ -35,11 +35,11 @@ export function Studentpage(){
             <div>
                 {
                     profiles.map(profile => 
-                    <div key={profile.RoolNumber}>
+                    <div key={profile.RollNumber}>
                         <div className="profilesection"> 
                                     <h2 className="text-center fw-b fw-bold bg-warning rounded-4 p-1">Profile</h2>
                             <div className="text-center pt-4">
-                                <img src="./images/admission-icon.png" style={{height:'100px',width:'100px',borderRadius:'50%'}}/>
+                                <img src="/images/admission-icon.png" style={{height:'100px',width:'100px',borderRadius:'50%'}}/>
                                 <div>
                                   <b>{profile.Name}</b>
                                 </div>
@@ -53,20 +53,20 @@ export function Studentpage(){
                                     <dt>Class/Section</dt>
                                     <dd>{profile.Class}/{profile.Section}</dd>
                                     <dt>Roll Number</dt>
-                                    <dd>{profile.RoolNumber}</dd>
+                                    <dd>{profile.RollNumber}</dd>
                                     <dt>Age</dt>
                                     <dd>{profile.Age}</dd>
                                     <dt>Phone Number</dt>
                                     <dd>{profile.Phone}</dd>
                                 </dl>
                                 <dl className="col-6 text-center pt-1" id="studentIcon" >
-                                    <Link to='/Homework/:10/:B' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Homework">
+                                    <Link to='/Homework/10/B' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Homework">
                                         Home wrok 
                                     </Link>
-                                    <Link to='' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Attendence">
+                                    <Link to='/GetAttendance/10/B/31' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Attendence">
                                         Attendence
                                     </Link>
-                                    <Link to='/Assignnment' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Assignnment">
+                                    <Link to='/Assignnment/10/B' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Assignnment">
                                         Assignnmetn
                                     </Link>
                                     <Link to='/Achivement/10/B/31' className=" btn btn-outline-danger p-2 mb-3 fw-bold" title="Homework">
