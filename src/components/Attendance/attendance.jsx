@@ -3,6 +3,7 @@ import axios from 'axios'
 import './attendance.css'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { Stprofile } from '../student_profile/profile'
 
 export function Attendancepage(){
     const [attendances,setattendance] = useState([])
@@ -20,7 +21,8 @@ export function Attendancepage(){
         <div className="Attendancepage"> 
             <div className="heading">
                 <div className='fw-bold fs-1 alert alert-danger'>Geethanjali High School</div>
-                <span className='fw-bold fs-3'>Attendance of - Vishnu Patel</span>
+                <Stprofile/>
+                <span className='fw-bold fs-3'>Attendance</span>
             </div>
             <div className='pt-3 d-flex justify-content-between px-3 text-center flex-row-reverse overflow-auto'>
                 {

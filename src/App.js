@@ -14,22 +14,24 @@ import { Studentpage } from './components/Student/student.jsx';
 import { HomeworkPage } from './components/Homework/homework.jsx';
 import { Achivementpage } from './components/Achivement/achivement.jsx';
 import { Attendancepage } from './components/Attendance/attendance.jsx';
+import { Stprofile } from './components/student_profile/profile.jsx';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter> 
         <Routes>
           <Route path='/home' element={<Homepage/>} />
           <Route path='/About' element={<Aboutpage/>} />
           <Route path='/Admission' element={<Admissionpage/>} />
-          <Route path='/' element={<Gallerypage/>} />
-          <Route path='/Event' element={<Eventpage/>} />
-          <Route path='/Assignnment/:class/:section' element={<Assignnmentpage/>} />
+          <Route path='/Gallery' element={<Gallerypage/>} />
+          <Route path='/' element={<Eventpage/>} /> 
+          <Route path='/Assignment/:class/:section' element={<Assignnmentpage/>} />
           <Route path='/Teacher' element={<Teacherpage/>} />
           <Route path='/Homework/:class/:section' element={<HomeworkPage/>} />
-          <Route path='/Achivement/:class/:section/:RoolNumber' element={<Achivementpage/>} />
-          <Route path='/Student/:class/:section/:RoolNumber' element={<Studentpage/>} />
+          <Route path='/Achievement/:class/:section/:RoolNumber' element={<Achivementpage/>} />
+          <Route path='/Student' element={<Studentpage/>} />
+          <Route path='/st' element={<Stprofile/>} />
           <Route path='/GetAttendance/:class/:section/:RoolNumber' element={<Attendancepage/>} />
         </Routes>
       </BrowserRouter>

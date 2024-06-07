@@ -3,6 +3,7 @@ import './homework.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { Stprofile } from '../student_profile/profile';
 
 export function HomeworkPage(){
     const [homework, sethomework] = useState([]);
@@ -19,6 +20,7 @@ export function HomeworkPage(){
     return(
         <div className="homeworkbody">
             <div className=' bg-warning p-2 fs-2 text-center fw-bold rounded-4 mb-3'>Home work Section</div>
+            <Stprofile/>
             {
                homework.map(work => <div className='alert alert-danger rounded-4'>
                 <b className='d-flex justify-content-between '><span className='bi-book bg-light p-2 me-2 rounded-3'> class:{work.class}/section:{work.section} (homework)</span> </b>

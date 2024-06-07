@@ -1,0 +1,26 @@
+.profile-header-section {
+    background-color: #336699;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.profile-name {
+    font-size: 18px;
+    
+}

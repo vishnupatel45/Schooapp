@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './achivement.css'
+import { Stprofile } from '../student_profile/profile';
 export function Achivementpage(){
 
     const [achivement, setachivement] = useState([]);
@@ -17,6 +18,7 @@ export function Achivementpage(){
 
     return(
         <div className="achivementbody">
+            <Stprofile/>
             <div className=' bg-info p-2 fs-2 text-center fw-bold rounded-4 mb-3'>Achivement Section</div>
             {
                achivement.map(achive => <div className='alert alert-danger rounded-3'>
