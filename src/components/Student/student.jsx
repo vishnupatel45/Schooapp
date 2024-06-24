@@ -39,6 +39,8 @@ export function Studentpage() {
                 {profiles.map(profile => (
                     <div key={profile.RollNumber} className="details-section">
                         <dl className="details-list">
+                            <button className="btn btn-dark rounded-5 fw-bold w-100">Students Details</button>
+                            <hr />
                             <dt>Date Of Birth</dt>
                             <dd>{profile.DateofBirth}</dd>
                             <dt>Age</dt>
@@ -47,6 +49,7 @@ export function Studentpage() {
                             <dd>{profile.Phone}</dd>
                         </dl>
                         <div className="action-links">
+                            <button className="btn btn-dark rounded-5 fw-bold">Stuents Wroks</button>
                             <Link to='/Homework/10/B' className="btn btn-outline-danger">Homework</Link>
                             <Link to='/GetAttendance/10/B/31' className="btn btn-outline-danger">Attendance</Link>
                             <Link to='/Assignment/10/B' className="btn btn-outline-danger">Assignment</Link>
@@ -57,14 +60,14 @@ export function Studentpage() {
                 ))}
             </div>
             <div className="subject-section">
-                <h3>My Subjects</h3>
+                <button className="btn btn-dark rounded-5 fw-bold w-100 mb-4">My Subjects</button>
                 <div className="subjects">
-                    <div className="subject-card">English</div>
-                    <div className="subject-card">Mathematics</div>
-                    <div className="subject-card">Physical Education</div>
-                    <div className="subject-card">Science</div>
-                    <div className="subject-card">History</div>
-                    <div className="subject-card">Geography</div>
+                    <button className="btn btn-outline-danger border border-danger">Telugu</button>
+                    <button className="btn btn-outline-danger border border-danger">Hindi</button>
+                    <button className="btn btn-outline-danger border border-danger">English</button>
+                    <button className="btn btn-outline-danger border border-danger">Maths</button>
+                    <button className="btn btn-outline-danger border border-danger">Science</button>
+                    <button className="btn btn-outline-danger border border-danger">Social</button>
                 </div>
             </div>
             <div className="chart-section">

@@ -25,13 +25,13 @@ function App() {
           <Route path='/About' element={<Aboutpage/>} />
           <Route path='/Admission' element={<Admissionpage/>} />
           <Route path='/Gallery' element={<Gallerypage/>} />
-          <Route path='/' element={<Eventpage/>} /> 
+          <Route path='/Events' element={<Eventpage/>} /> 
           <Route path='/Assignment/:class/:section' element={<Assignnmentpage/>} />
-          <Route path='/Teacher' element={<Teacherpage/>} />
+          <Route path='/' element={<Teacherpage/>} />
           <Route path='/Homework/:class/:section' element={<HomeworkPage/>} />
           <Route path='/Achievement/:class/:section/:RoolNumber' element={<Achivementpage/>} />
-          <Route path='/Student' element={<Studentpage/>} />
-          <Route path='/st' element={<Stprofile/>} />
+          <Route path='/Student/:class/:section/:RoolNumber' element={<Studentpage/>} />
+          {/* <Route path='/st' element={<Stprofile/>} /> */}
           <Route path='/GetAttendance/:class/:section/:RoolNumber' element={<Attendancepage/>} />
         </Routes>
       </BrowserRouter>

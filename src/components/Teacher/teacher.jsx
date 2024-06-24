@@ -6,32 +6,43 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
+import img from '../../assets/Teachet-phots.png'
 
 export function Teacherpage(){
     
     const [photo,setphoto] = useState(null)
     const [cookie,setcookie,removecookie] = useCookies('Photo');
+    const [profile,setprofile]= useState([])
 
-    function handilechange(e){
-        var file = e.target.files[0]
-        setphoto(URL.createObjectURL(file));
-        setcookie('Photo',photo)
-        if(photo == cookie['Photo']){
-            console.log('both are same')
-            console.log(typeof cookie['Photo'])
-            console.log(typeof photo)
-            console.log(cookie['Photo'],'for cookie')
-            console.log(photo,'for photo')
-        }else{
-            console.log('both are not same')
-            console.log(typeof cookie['Photo'])
-            console.log(typeof photo)
-            console.log(cookie['Photo'],'for cookie')
-            console.log(photo,'for photo')
-        }
-
+    const Fetchprofile = async ()=>{
+        const get = await axios.get(`http://127.0.0.1:7000/teacher-profile`)
+        setprofile(get.data)
     }
-    
+
+
+    // function handilechange(e){
+    //     var file = e.target.files[0]
+    //     setphoto(URL.createObjectURL(file));
+    //     setcookie('Photo',photo)
+    //     if(photo == cookie['Photo']){
+    //         console.log('both are same')
+    //         console.log(typeof cookie['Photo'])
+    //         console.log(typeof photo)
+    //         console.log(cookie['Photo'],'for cookie')
+    //         console.log(photo,'for photo')
+    //     }else{
+    //         console.log('both are not same')
+    //         console.log(typeof cookie['Photo'])
+    //         console.log(typeof photo)
+    //         console.log(cookie['Photo'],'for cookie')
+    //         console.log(photo,'for photo')
+    //     }
+
+    // }
+
+    useEffect(()=>{
+        Fetchprofile()
+    },[])
 
     return(
         <div className='teacherbody'>
@@ -106,6 +117,20 @@ export function Teacherpage(){
                 </div>
             </div>
             <div className='stdUpdates bg-light mt-4 pb-2'>
+                <div className='mb-4'>
+                    <img src={img} style={{width:"400px"}} />
+                    <div>
+                        <button className='btn btn-dark w-100 fw-bold'>profile section</button>
+                        {
+                            profile.map((prof,i) =><dl className='p-1'key={i}>
+                                <dt>Name:{prof.techName}</dt>
+                                <dt>Subject:{prof.techSubject}</dt>
+                                <dt>Expersion:{prof.techExpersion}</dt>
+                                <dt>About You:{prof.techIntro}</dt>
+                            </dl>)
+                        }
+                    </div>
+                </div>
                 <div>
                     <div className='alert alert-info bi-person-fill text-center fw-medium fs-5'> Update Student Data</div>
                     <div className='updatesIcons d-flex justify-content-around'>

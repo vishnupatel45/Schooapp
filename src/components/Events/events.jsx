@@ -8,7 +8,7 @@ export function Eventpage(){
     const [events, setevents] = useState([]);
 
     function featchEvents(){
-        axios.get('https://schoolbackend-plx3.onrender.com/Events')
+        axios.get('http://127.0.0.1:7000/Events')
         .then(res => setevents(res.data))
         .catch(error => console.error('Error fetching home alerts:', error));
     }
